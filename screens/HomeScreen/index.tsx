@@ -7,7 +7,7 @@ const HomeScreen = () => {
     //TODO: Implement logic to display nearby locations using the following Geolocation API
     Geolocation.getCurrentPosition(
       async position => {
-        console.log(position);
+        console.log('position', position);
       },
       error => {
         console.error(error);
