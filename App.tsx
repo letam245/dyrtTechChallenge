@@ -1,12 +1,15 @@
-import React, {useEffect} from 'react';
-import NativeDevSettings from 'react-native/Libraries/NativeModules/specs/NativeDevSettings';
+import React from 'react';
 import Navigation from './src/components/navigation';
+import {LoaderProvider} from './src/hooks/LoaderContext';
+import GlobalLoader from './src/components/ui/GlobalLoader';
 
-const App = () => {
-  useEffect(() => {
-    NativeDevSettings.setIsDebuggingRemotely(true);
-  }, []);
-  return <Navigation />;
+const App: React.FC = () => {
+  return (
+    <LoaderProvider>
+      <Navigation />
+      <GlobalLoader />
+    </LoaderProvider>
+  );
 };
 
 export default App;

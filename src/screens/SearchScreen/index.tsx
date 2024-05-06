@@ -4,16 +4,19 @@ import axios from 'axios';
 import {useNavigation} from '@react-navigation/native';
 import {SearchScreenNavigationProp} from '../../types/navigation';
 import CampgroundCard, {CardProps} from '../../components/ui/CampgroundCard';
+import {useLoader} from '../../hooks/LoaderContext';
 
 const SearchScreen = () => {
   const navigation = useNavigation<SearchScreenNavigationProp>();
   const [campgrounds, setCampgrounds] = useState<AutocompleteCampground[]>();
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const {setIsLoading} = useLoader();
 
   const searchForCamp = async (
     query: string,
   ): Promise<AutocompleteCampground[]> => {
     try {
+      setIsLoading(true);
       const {data} = await axios.get<AutocompleteCampground[]>(
         `https://staging.thedyrt.com/api/v6/autocomplete/campgrounds?q=${encodeURIComponent(
           query,
@@ -25,6 +28,7 @@ const SearchScreen = () => {
       console.error('Error fetching campgrounds:', error);
       throw error;
     } finally {
+      setIsLoading(false);
     }
   };
 

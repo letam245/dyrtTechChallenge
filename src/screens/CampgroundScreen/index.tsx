@@ -7,10 +7,12 @@ import {Image} from '@rneui/base';
 import {colors, deviceWidthRatio} from '../../utils/theme';
 import {Text} from '@rneui/themed';
 import {CampDetail, Campground} from '../../types/campground';
+import {useLoader} from '../../hooks/LoaderContext';
 
 const CampgroundScreen = () => {
   const route = useRoute<DetailsScreenRouteProp>();
   const [campDetail, setCampDetail] = useState<Campground>();
+  const {setIsLoading} = useLoader();
 
   useEffect(() => {
     fetchCampgroundDetail(route.params.campgroundId);
@@ -20,6 +22,7 @@ const CampgroundScreen = () => {
     campground_id: number,
   ): Promise<CampDetail> => {
     try {
+      setIsLoading(true);
       const {data} = await axios.get<CampDetail>(
         `https://thedyrt.com/api/v6/campgrounds/${campground_id}`,
       );
@@ -29,6 +32,8 @@ const CampgroundScreen = () => {
     } catch (error) {
       console.error('Error fetching campgrounds:', error);
       throw error;
+    } finally {
+      setIsLoading(false);
     }
   };
 

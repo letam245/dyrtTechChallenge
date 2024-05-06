@@ -9,8 +9,10 @@ import CampgroundCard, {CardProps} from '../../components/ui/CampgroundCard';
 import {showLocationAccessAlert} from '../../utils/methods';
 import {useNavigation} from '@react-navigation/native';
 import {HomeScreenNavigationProp} from '../../types/navigation';
+import {useLoader} from '../../hooks/LoaderContext';
 
-const HomeScreen = () => {
+const HomeScreen: React.FC = () => {
+  const {setIsLoading} = useLoader();
   const campNumber = 10;
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const [campgrounds, setCampgrounds] = useState<CardProps[]>();
@@ -68,6 +70,7 @@ const HomeScreen = () => {
     lon: number,
   ): Promise<AutocompleteCampground[]> => {
     try {
+      setIsLoading(true);
       const response = await axios.get<AutocompleteCampground[]>(
         `https://staging.thedyrt.com/api/v6/autocomplete/campgrounds?lat=${lat}&lon=${lon}`,
       );
@@ -75,6 +78,8 @@ const HomeScreen = () => {
     } catch (error) {
       console.error('Error fetching campgrounds:', error);
       throw error;
+    } finally {
+      setIsLoading(false);
     }
   };
 
