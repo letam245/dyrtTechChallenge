@@ -8,6 +8,9 @@ import {
 import {RFValue} from 'react-native-responsive-fontsize';
 import {Text, Image} from '@rneui/themed';
 import { colors, deviceWidthRatio } from 'utils/theme';
+import { useNavigation } from '@react-navigation/native';
+import { DetailScreenNavigationProp } from 'types/navigation';
+import { PLACEHOLDER_PHOTO } from 'utils/constant';
 
 const CampgroundCard: React.FC<CampGroundCardProp> = ({
   id,
@@ -16,8 +19,8 @@ const CampgroundCard: React.FC<CampGroundCardProp> = ({
   distance_mi,
   region_name,
   full_width,
-  navigation,
 }) => {
+  const navigation = useNavigation<DetailScreenNavigationProp>();
   return (
     <TouchableOpacity
       onPress={() =>
@@ -35,7 +38,7 @@ const CampgroundCard: React.FC<CampGroundCardProp> = ({
           source={{
             uri: photoUrl
               ? photoUrl
-              : 'https://placehold.co/600x400/orange/white',
+              : PLACEHOLDER_PHOTO,
           }}
           style={styles.image}
           PlaceholderContent={<ActivityIndicator />}

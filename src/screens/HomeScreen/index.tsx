@@ -4,8 +4,6 @@ import Geolocation from '@react-native-community/geolocation';
 import {Text} from '@rneui/themed';
 import {RFValue} from 'react-native-responsive-fontsize';
 import axios from 'axios';
-import {useNavigation} from '@react-navigation/native';
-import { HomeScreenNavigationProp } from 'types/navigation';
 import CampgroundCard from 'components/ui/CampgroundCard';
 import { showLocationAccessAlert } from 'utils/methods';
 import { colors, deviceWidthRatio } from 'utils/theme';
@@ -14,7 +12,6 @@ import { useLoader } from 'hooks/useLoader';
 const HomeScreen: React.FC = () => {
   const {setIsLoading} = useLoader();
   const campNumber = 10;
-  const navigation = useNavigation<HomeScreenNavigationProp>();
   const [campgrounds, setCampgrounds] = useState<CampGroundCardProp[]>();
 
   useEffect(() => {
@@ -90,7 +87,6 @@ const HomeScreen: React.FC = () => {
         photoUrl={item.photoUrl}
         distance_mi={item.distance_mi}
         id={item.id}
-        navigation={navigation}
       />
     );
   };

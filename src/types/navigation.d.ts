@@ -1,8 +1,5 @@
-import type {
-  CompositeNavigationProp,
-  RouteProp,
-} from '@react-navigation/native';
-import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 type NavigatorScreenParams<T> =
   import('@react-navigation/native').NavigatorScreenParams<T>;
@@ -32,15 +29,14 @@ type SearchStackNavigatorParamList = {
   };
 };
 
-type HomeScreenNavigationProp = CompositeNavigationProp<
-  NativeStackNavigationProp<HomeStackNavigatorParamList, 'CampgroundDetails'>
->;
-
-type SearchScreenNavigationProp = CompositeNavigationProp<
-  NativeStackNavigationProp<SearchScreenNavigationProp, 'CampgroundDetails'>
+type DetailScreenNavigationProp = StackNavigationProp<
+  SearchStackNavigatorParamList,
+  HomeStackNavigatorParamList
 >;
 
 type DetailsScreenRouteProp = RouteProp<
   HomeStackNavigatorParamList,
+  'CampgroundDetails',
+  SearchStackNavigatorParamList,
   'CampgroundDetails'
 >;

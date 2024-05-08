@@ -1,13 +1,10 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, FlatList, TextInput} from 'react-native';
 import axios from 'axios';
-import {useNavigation} from '@react-navigation/native';
-import { SearchScreenNavigationProp } from 'types/navigation';
 import CampgroundCard  from 'components/ui/CampgroundCard';
 import { useLoader } from 'hooks/useLoader';
 
 const SearchScreen = () => {
-  const navigation = useNavigation<SearchScreenNavigationProp>();
   const [campgrounds, setCampgrounds] = useState<AutocompleteCampground[]>();
   const [searchQuery, setSearchQuery] = useState<string>('');
   const {setIsLoading} = useLoader();
@@ -43,7 +40,6 @@ const SearchScreen = () => {
         photoUrl={item.photoUrl}
         region_name={item.region_name}
         id={item.id}
-        navigation={navigation}
         full_width
       />
     );

@@ -1,9 +1,10 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {ImageBackground, StyleSheet} from 'react-native';
+import CampgroundScreen from 'screens/CampgroundScreen';
 import HomeScreen from 'screens/HomeScreen';
 import { HomeStackNavigatorParamList } from 'types/navigation';
-import CampgroundScreen from 'screens/CampgroundScreen';
+
 
 const HomeStack = createNativeStackNavigator<HomeStackNavigatorParamList>();
 
@@ -16,7 +17,7 @@ const HomeStackNavigator = () => {
         options={{
           headerTitle: () => (
             <ImageBackground
-              source={require('./../../assets/the_dirt_logo.png')}
+              source={require('assets/the_dirt_logo.png')}
               style={styles.dirtLogo}
             />
           ),

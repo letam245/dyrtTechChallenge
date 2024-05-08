@@ -5,8 +5,8 @@ import axios from 'axios';
 import {Text, Image} from '@rneui/themed';
 import { Campground, CampDetail } from 'types/campground';
 import { colors, deviceWidthRatio } from 'utils/theme';
-import { DetailsScreenRouteProp } from 'types/navigation';
 import { useLoader } from 'hooks/useLoader';
+import { DetailsScreenRouteProp } from 'types/navigation';
 
 const CampgroundScreen = () => {
   const route = useRoute<DetailsScreenRouteProp>();
