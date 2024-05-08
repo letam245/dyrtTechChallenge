@@ -4,8 +4,9 @@ import {useRoute} from '@react-navigation/native';
 import axios from 'axios';
 import {Text, Image} from '@rneui/themed';
 import { Campground, CampDetail } from 'types/campground';
-import { colors } from 'utils/theme';
+import { colors, deviceWidthRatio } from 'utils/theme';
 import { DetailsScreenRouteProp } from 'types/navigation';
+import { useLoader } from 'hooks/useLoader';
 
 const CampgroundScreen = () => {
   const route = useRoute<DetailsScreenRouteProp>();
@@ -84,11 +85,4 @@ const styles = StyleSheet.create({
   },
 });
 export default CampgroundScreen;
-function useLoader(): { setIsLoading: any; } {
-  throw new Error('Function not implemented.');
-}
-
-function deviceWidthRatio(arg0: number): any {
-  throw new Error('Function not implemented.');
-}
 

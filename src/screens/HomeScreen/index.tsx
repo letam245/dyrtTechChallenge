@@ -5,11 +5,11 @@ import {Text} from '@rneui/themed';
 import {RFValue} from 'react-native-responsive-fontsize';
 import axios from 'axios';
 import {useNavigation} from '@react-navigation/native';
-import { useLoader } from 'hooks/LoaderContext';
 import { HomeScreenNavigationProp } from 'types/navigation';
 import CampgroundCard from 'components/ui/CampgroundCard';
 import { showLocationAccessAlert } from 'utils/methods';
 import { colors, deviceWidthRatio } from 'utils/theme';
+import { useLoader } from 'hooks/useLoader';
 
 const HomeScreen: React.FC = () => {
   const {setIsLoading} = useLoader();
