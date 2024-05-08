@@ -1,9 +1,9 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from '../../screens/HomeScreen';
-import CampgroundScreen from '../../screens/CampgroundScreen';
-import {HomeStackNavigatorParamList} from '../../types/navigation';
 import {ImageBackground, StyleSheet} from 'react-native';
+import HomeScreen from 'screens/HomeScreen';
+import { HomeStackNavigatorParamList } from 'types/navigation';
+import CampgroundScreen from 'screens/CampgroundScreen';
 
 const HomeStack = createNativeStackNavigator<HomeStackNavigatorParamList>();
 

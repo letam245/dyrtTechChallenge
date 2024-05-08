@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import {View, StyleSheet, FlatList, TextInput} from 'react-native';
 import axios from 'axios';
 import {useNavigation} from '@react-navigation/native';
-import {SearchScreenNavigationProp} from '../../types/navigation';
-import CampgroundCard, {CardProps} from '../../components/ui/CampgroundCard';
-import {useLoader} from '../../hooks/LoaderContext';
+import { SearchScreenNavigationProp } from 'types/navigation';
+import { useLoader } from 'hooks/LoaderContext';
+import CampgroundCard  from 'components/ui/CampgroundCard';
 
 const SearchScreen = () => {
   const navigation = useNavigation<SearchScreenNavigationProp>();
@@ -36,7 +36,7 @@ const SearchScreen = () => {
     searchForCamp(searchQuery.trim().toLowerCase());
   };
 
-  const renderItem = ({item}: {item: CardProps}) => {
+  const renderItem = ({item}: {item: CampGroundCardProp}) => {
     return (
       <CampgroundCard
         name={item.name}

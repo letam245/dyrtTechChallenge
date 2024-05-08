@@ -32,11 +32,6 @@ type SearchStackNavigatorParamList = {
   };
 };
 
-// type HomeScreenNavigationProp = NativeStackNavigationProp<
-//   HomeStackNavigatorParamList,
-//   'CampgroundDetails'
-// >;
-
 type HomeScreenNavigationProp = CompositeNavigationProp<
   NativeStackNavigationProp<HomeStackNavigatorParamList, 'CampgroundDetails'>
 >;

@@ -5,21 +5,11 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {colors, deviceWidthRatio} from '../../utils/theme';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {Text, Image} from '@rneui/themed';
+import { colors, deviceWidthRatio } from 'utils/theme';
 
-export type CardProps = {
-  id: number;
-  name: string;
-  photoUrl: string;
-  distance_mi?: string;
-  region_name?: string;
-  full_width?: boolean;
-  navigation?: any;
-};
-
-const CampgroundCard: React.FC<CardProps> = ({
+const CampgroundCard: React.FC<CampGroundCardProp> = ({
   id,
   name,
   photoUrl,

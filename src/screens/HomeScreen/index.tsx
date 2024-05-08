@@ -4,18 +4,18 @@ import Geolocation from '@react-native-community/geolocation';
 import {Text} from '@rneui/themed';
 import {RFValue} from 'react-native-responsive-fontsize';
 import axios from 'axios';
-import {colors, deviceWidthRatio} from '../../utils/theme';
-import CampgroundCard, {CardProps} from '../../components/ui/CampgroundCard';
-import {showLocationAccessAlert} from '../../utils/methods';
 import {useNavigation} from '@react-navigation/native';
-import {HomeScreenNavigationProp} from '../../types/navigation';
-import {useLoader} from '../../hooks/LoaderContext';
+import { useLoader } from 'hooks/LoaderContext';
+import { HomeScreenNavigationProp } from 'types/navigation';
+import CampgroundCard from 'components/ui/CampgroundCard';
+import { showLocationAccessAlert } from 'utils/methods';
+import { colors, deviceWidthRatio } from 'utils/theme';
 
 const HomeScreen: React.FC = () => {
   const {setIsLoading} = useLoader();
   const campNumber = 10;
   const navigation = useNavigation<HomeScreenNavigationProp>();
-  const [campgrounds, setCampgrounds] = useState<CardProps[]>();
+  const [campgrounds, setCampgrounds] = useState<CampGroundCardProp[]>();
 
   useEffect(() => {
     checkLocationPermission();
@@ -83,7 +83,7 @@ const HomeScreen: React.FC = () => {
     }
   };
 
-  const renderItem = ({item}: {item: CardProps}) => {
+  const renderItem = ({item}: {item: CampGroundCardProp}) => {
     return (
       <CampgroundCard
         name={item.name}
@@ -102,7 +102,7 @@ const HomeScreen: React.FC = () => {
           Welcome to the Dirt
         </Text>
         <Image
-          source={require('../../assets/the_dirt_home.png')}
+          source={require('assets/the_dirt_home.png')}
           style={styles.logo}
         />
       </View>

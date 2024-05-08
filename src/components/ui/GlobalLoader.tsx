@@ -1,7 +1,7 @@
+import { useLoader } from 'hooks/LoaderContext';
 import React from 'react';
 import {ActivityIndicator, View, StyleSheet} from 'react-native';
-import {colors} from '../../utils/theme';
-import {useLoader} from '../../hooks/LoaderContext';
+import { colors } from 'utils/theme';
 
 const GlobalLoader: React.FC = () => {
   const {isLoading} = useLoader();

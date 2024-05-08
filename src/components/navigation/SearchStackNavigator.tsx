@@ -1,8 +1,8 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import CampgroundScreen from '../../screens/CampgroundScreen';
-import SearchScreen from '../../screens/SearchScreen';
-import {SearchStackNavigatorParamList} from '../../types/navigation';
+import { SearchStackNavigatorParamList } from 'types/navigation';
+import SearchScreen from 'screens/SearchScreen';
+import CampgroundScreen from 'screens/CampgroundScreen';
 
 const SearchStack = createNativeStackNavigator<SearchStackNavigatorParamList>();
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import BottomTabs from './BottomTabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../../types/navigation';
+import { RootStackParamList } from 'types/navigation';
+import BottomTabs from './BottomTabs';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 

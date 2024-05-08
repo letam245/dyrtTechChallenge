@@ -6,12 +6,15 @@ type LoadingContextType = {
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-// const LoaderContext = createContext<LoaderContextType | undefined>(undefined);
-
 const LoadingContext = createContext<LoadingContextType>({
   isLoading: false,
   setIsLoading: () => {},
 });
+
+interface Props {
+  children: React.ReactNode;
+}
+
 
 export const useLoader = () => {
   const context = useContext(LoadingContext);
@@ -21,7 +24,7 @@ export const useLoader = () => {
   return context;
 };
 
-export const LoaderProvider: React.FC = ({children}) => {
+export const LoaderProvider: React.FC <Props>= ({children}) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   return (

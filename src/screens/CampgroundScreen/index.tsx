@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {ActivityIndicator, ScrollView, StyleSheet, View} from 'react-native';
-import {DetailsScreenRouteProp} from '../../types/navigation';
 import {useRoute} from '@react-navigation/native';
 import axios from 'axios';
-import {Image} from '@rneui/base';
-import {colors, deviceWidthRatio} from '../../utils/theme';
-import {Text} from '@rneui/themed';
-import {CampDetail, Campground} from '../../types/campground';
-import {useLoader} from '../../hooks/LoaderContext';
+import {Text, Image} from '@rneui/themed';
+import { Campground, CampDetail } from 'types/campground';
+import { colors } from 'utils/theme';
+import { DetailsScreenRouteProp } from 'types/navigation';
 
 const CampgroundScreen = () => {
   const route = useRoute<DetailsScreenRouteProp>();
@@ -20,15 +18,13 @@ const CampgroundScreen = () => {
 
   const fetchCampgroundDetail = async (
     campground_id: number,
-  ): Promise<CampDetail> => {
+  ): Promise<void> => {
     try {
       setIsLoading(true);
       const {data} = await axios.get<CampDetail>(
         `https://thedyrt.com/api/v6/campgrounds/${campground_id}`,
       );
-      const result = data.data;
-      setCampDetail(result);
-      return data;
+      setCampDetail( data.data);
     } catch (error) {
       console.error('Error fetching campgrounds:', error);
       throw error;
@@ -88,3 +84,11 @@ const styles = StyleSheet.create({
   },
 });
 export default CampgroundScreen;
+function useLoader(): { setIsLoading: any; } {
+  throw new Error('Function not implemented.');
+}
+
+function deviceWidthRatio(arg0: number): any {
+  throw new Error('Function not implemented.');
+}
+

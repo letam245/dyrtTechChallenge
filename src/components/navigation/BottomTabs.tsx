@@ -1,12 +1,11 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {SCREENS} from '../../utils/constant';
 import {Icon} from '@rneui/themed';
 import {RFValue} from 'react-native-responsive-fontsize';
-import {colors} from '../../utils/theme';
 import HomeStackNavigator from './HomeStackNavigator';
 import SearchStackNavigator from './SearchStackNavigator';
-import {BottomTabParamList} from '../../types/navigation';
+import { colors } from 'utils/theme';
+import { BottomTabParamList } from 'types/navigation';
 
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 
