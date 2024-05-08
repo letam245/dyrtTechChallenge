@@ -18,5 +18,4 @@ interface AutocompleteCampground {
 
 type CampGroundCardProp = Pick<AutocompleteCampground, 'id' | 'name' | 'photoUrl' | 'region_name' | 'distance_mi'> & {
   full_width?: boolean;
-  navigation?: any;
 }

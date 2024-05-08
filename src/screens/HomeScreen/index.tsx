@@ -31,13 +31,12 @@ const HomeScreen: React.FC = () => {
   };
 
   const handleDisplayNearbyLocations = () => {
-    //TODO: Implement logic to display nearby locations using the following Geolocation API
     Geolocation.getCurrentPosition(
       async position => {
         const {latitude, longitude} = position.coords;
         if (latitude && longitude) {
           try {
-            const response = await fetchCampgrounds(61.2181, -149.9003);
+            const response = await fetchCampgrounds(latitude, longitude);
             if (response && response.length) {
               const filterCampgrounds = response
                 .filter(camp => camp.photoUrl)
