@@ -32,7 +32,7 @@ export interface Attributes {
   category: string;
   description: string;
   directions: string;
-  'annotated-features': {[key: string]: AnnotatedFeature};
+  'annotated-features': { [key: string]: AnnotatedFeature };
   email: string;
   name: string;
   'phone-number': string;

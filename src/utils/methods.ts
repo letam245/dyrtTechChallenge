@@ -1,5 +1,5 @@
-import {Alert, Linking, Platform} from 'react-native';
-import {ERROR_MESSAGE} from './constant';
+import { Alert, Linking, Platform } from 'react-native';
+import { ERROR_MESSAGE } from './constant';
 
 export const openPhoneSetting = () => {
   Linking.canOpenURL('app-settings:')
@@ -21,7 +21,7 @@ export const showLocationAccessAlert = () => {
         onPress: () =>
           Platform.OS === 'ios' ? openPhoneSetting() : Linking.openSettings(),
       },
-      {text: 'Cancel'},
+      { text: 'Cancel' },
     ],
   );
 };

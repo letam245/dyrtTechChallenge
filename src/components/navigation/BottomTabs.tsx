@@ -1,7 +1,7 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Icon} from '@rneui/themed';
-import {RFValue} from 'react-native-responsive-fontsize';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Icon } from '@rneui/themed';
+import { RFValue } from 'react-native-responsive-fontsize';
 import HomeStackNavigator from './HomeStackNavigator';
 import SearchStackNavigator from './SearchStackNavigator';
 import { colors } from 'utils/theme';
@@ -39,11 +39,11 @@ const BottomTabs = () => {
   };
   return (
     <Tab.Navigator
-      screenOptions={({route}) => ({
+      screenOptions={({ route }) => ({
         headerShown: false,
         tabBarActiveTintColor: colors.dirtOrange,
-        tabBarLabelStyle: {fontSize: RFValue(10)},
-        tabBarIcon: ({focused, color, size}) =>
+        tabBarLabelStyle: { fontSize: RFValue(10) },
+        tabBarIcon: ({ focused, color, size }) =>
           renderTabIcon(route, focused, color, size),
       })}>
       <Tab.Screen

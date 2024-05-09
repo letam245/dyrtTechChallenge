@@ -1,10 +1,9 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {ImageBackground, StyleSheet} from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { ImageBackground, StyleSheet } from 'react-native';
 import CampgroundScreen from 'screens/CampgroundScreen';
 import HomeScreen from 'screens/HomeScreen';
 import { HomeStackNavigatorParamList } from 'types/navigation';
-
 
 const HomeStack = createNativeStackNavigator<HomeStackNavigatorParamList>();
 
@@ -26,7 +25,7 @@ const HomeStackNavigator = () => {
       <HomeStack.Screen
         name="CampgroundDetails"
         component={CampgroundScreen}
-        options={({route}) => ({
+        options={({ route }) => ({
           title: route.params.name,
         })}
       />

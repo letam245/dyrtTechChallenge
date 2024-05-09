@@ -16,6 +16,9 @@ interface AutocompleteCampground {
   distance_mi?: string;
 }
 
-type CampGroundCardProp = Pick<AutocompleteCampground, 'id' | 'name' | 'photoUrl' | 'region_name' | 'distance_mi'> & {
+type CampGroundCardProp = Pick<
+  AutocompleteCampground,
+  'id' | 'name' | 'photoUrl' | 'region_name' | 'distance_mi'
+> & {
   full_width?: boolean;
-}
+};

@@ -5,8 +5,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {RFValue} from 'react-native-responsive-fontsize';
-import {Text, Image} from '@rneui/themed';
+import { RFValue } from 'react-native-responsive-fontsize';
+import { Text, Image } from '@rneui/themed';
 import { colors, deviceWidthRatio } from 'utils/theme';
 import { useNavigation } from '@react-navigation/native';
 import { DetailScreenNavigationProp } from 'types/navigation';
@@ -32,13 +32,13 @@ const CampgroundCard: React.FC<CampGroundCardProp> = ({
       <View
         style={{
           ...styles.card,
-          ...{width: full_width ? deviceWidthRatio(1) : deviceWidthRatio(0.85)},
+          ...{
+            width: full_width ? deviceWidthRatio(1) : deviceWidthRatio(0.85),
+          },
         }}>
         <Image
           source={{
-            uri: photoUrl
-              ? photoUrl
-              : PLACEHOLDER_PHOTO,
+            uri: photoUrl ? photoUrl : PLACEHOLDER_PHOTO,
           }}
           style={styles.image}
           PlaceholderContent={<ActivityIndicator />}

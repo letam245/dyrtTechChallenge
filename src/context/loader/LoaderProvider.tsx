@@ -1,17 +1,16 @@
-import React from "react";
-import { createContext, useState } from "react";
-import { LoaderContext } from "./LoaderContext";
-
+import React from 'react';
+import { useState } from 'react';
+import { LoaderContext } from './LoaderContext';
 
 interface Props {
   children: React.ReactNode;
 }
 
-export const LoaderProvider = ({children}: Props) => {
+export const LoaderProvider = ({ children }: Props) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   return (
-    <LoaderContext.Provider value={{isLoading, setIsLoading}}>
+    <LoaderContext.Provider value={{ isLoading, setIsLoading }}>
       {children}
     </LoaderContext.Provider>
   );

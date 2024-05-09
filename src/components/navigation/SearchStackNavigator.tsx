@@ -1,5 +1,5 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SearchScreen from 'screens/SearchScreen';
 import CampgroundScreen from 'screens/CampgroundScreen';
 import { SearchStackNavigatorParamList } from 'types/navigation';
@@ -13,7 +13,7 @@ const SearchStackNavigator = () => {
       <SearchStack.Screen
         name="CampgroundDetails"
         component={CampgroundScreen}
-        options={({route}) => ({
+        options={({ route }) => ({
           title: route.params.name,
         })}
       />

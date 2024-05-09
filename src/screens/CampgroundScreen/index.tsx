@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {ActivityIndicator, ScrollView, StyleSheet, View} from 'react-native';
-import {useRoute} from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, ScrollView, StyleSheet, View } from 'react-native';
+import { useRoute } from '@react-navigation/native';
 import axios from 'axios';
-import {Text, Image} from '@rneui/themed';
+import { Text, Image } from '@rneui/themed';
 import { Campground, CampDetail } from 'types/campground';
 import { colors, deviceWidthRatio } from 'utils/theme';
 import { useLoader } from 'hooks/useLoader';
@@ -11,7 +11,7 @@ import { DetailsScreenRouteProp } from 'types/navigation';
 const CampgroundScreen = () => {
   const route = useRoute<DetailsScreenRouteProp>();
   const [campDetail, setCampDetail] = useState<Campground>();
-  const {setIsLoading} = useLoader();
+  const { setIsLoading } = useLoader();
 
   useEffect(() => {
     fetchCampgroundDetail(route.params.campgroundId);
@@ -22,10 +22,10 @@ const CampgroundScreen = () => {
   ): Promise<void> => {
     try {
       setIsLoading(true);
-      const {data} = await axios.get<CampDetail>(
+      const { data } = await axios.get<CampDetail>(
         `https://thedyrt.com/api/v6/campgrounds/${campground_id}`,
       );
-      setCampDetail( data.data);
+      setCampDetail(data.data);
     } catch (error) {
       console.error('Error fetching campgrounds:', error);
       throw error;
@@ -85,4 +85,3 @@ const styles = StyleSheet.create({
   },
 });
 export default CampgroundScreen;
-

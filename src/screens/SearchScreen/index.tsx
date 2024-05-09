@@ -1,20 +1,20 @@
-import React, {useState} from 'react';
-import {View, StyleSheet, FlatList, TextInput} from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, FlatList, TextInput } from 'react-native';
 import axios from 'axios';
-import CampgroundCard  from 'components/ui/CampgroundCard';
+import CampgroundCard from 'components/ui/CampgroundCard';
 import { useLoader } from 'hooks/useLoader';
 
 const SearchScreen = () => {
   const [campgrounds, setCampgrounds] = useState<AutocompleteCampground[]>();
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const {setIsLoading} = useLoader();
+  const { setIsLoading } = useLoader();
 
   const searchForCamp = async (
     query: string,
   ): Promise<AutocompleteCampground[]> => {
     try {
       setIsLoading(true);
-      const {data} = await axios.get<AutocompleteCampground[]>(
+      const { data } = await axios.get<AutocompleteCampground[]>(
         `https://staging.thedyrt.com/api/v6/autocomplete/campgrounds?q=${encodeURIComponent(
           query,
         )}`,
@@ -33,7 +33,7 @@ const SearchScreen = () => {
     searchForCamp(searchQuery.trim().toLowerCase());
   };
 
-  const renderItem = ({item}: {item: CampGroundCardProp}) => {
+  const renderItem = ({ item }: { item: CampGroundCardProp }) => {
     return (
       <CampgroundCard
         name={item.name}

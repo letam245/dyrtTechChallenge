@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, SafeAreaView, Image, FlatList} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, StyleSheet, SafeAreaView, Image, FlatList } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
-import {Text} from '@rneui/themed';
-import {RFValue} from 'react-native-responsive-fontsize';
+import { Text } from '@rneui/themed';
+import { RFValue } from 'react-native-responsive-fontsize';
 import axios from 'axios';
 import CampgroundCard from 'components/ui/CampgroundCard';
 import { showLocationAccessAlert } from 'utils/methods';
@@ -10,7 +10,7 @@ import { colors, deviceWidthRatio } from 'utils/theme';
 import { useLoader } from 'hooks/useLoader';
 
 const HomeScreen: React.FC = () => {
-  const {setIsLoading} = useLoader();
+  const { setIsLoading } = useLoader();
   const campNumber = 10;
   const [campgrounds, setCampgrounds] = useState<CampGroundCardProp[]>();
 
@@ -33,7 +33,7 @@ const HomeScreen: React.FC = () => {
   const handleDisplayNearbyLocations = () => {
     Geolocation.getCurrentPosition(
       async position => {
-        const {latitude, longitude} = position.coords;
+        const { latitude, longitude } = position.coords;
         if (latitude && longitude) {
           try {
             const response = await fetchCampgrounds(latitude, longitude);
@@ -79,7 +79,7 @@ const HomeScreen: React.FC = () => {
     }
   };
 
-  const renderItem = ({item}: {item: CampGroundCardProp}) => {
+  const renderItem = ({ item }: { item: CampGroundCardProp }) => {
     return (
       <CampgroundCard
         name={item.name}
